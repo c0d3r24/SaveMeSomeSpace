@@ -1,7 +1,22 @@
 import React from 'react';
+import firebase from 'firebase';
 import { StyleSheet, Text, View } from 'react-native';
 
-export default class App extends React.Component {
+
+ 
+ class App extends React.Component {
+  ComponentWillMount(){
+    const config = {
+      apiKey: "AIzaSyB1YiEfMKJ_QRONLdANaHDh0UoZ_DuJP3U",
+      authDomain: "firstproject-5e368.firebaseapp.com",
+      databaseURL: "https://firstproject-5e368.firebaseio.com",
+      projectId: "firstproject-5e368",
+      storageBucket: "firstproject-5e368.appspot.com",
+      messagingSenderId: "435468636684"
+    };
+    firebase.initializeApp(config);
+  }
+
   render() {
     return (
       <View style={styles.container}>
@@ -19,3 +34,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+
+export default App;

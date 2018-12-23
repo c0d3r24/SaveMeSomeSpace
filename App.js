@@ -1,7 +1,7 @@
 import React from 'react';
 import firebase from 'firebase';
 import { StyleSheet, Text, View } from 'react-native';
-
+import Signup from './src/components/Signup';
 
  
  class App extends React.Component {
@@ -20,7 +20,7 @@ import { StyleSheet, Text, View } from 'react-native';
   render() {
     return (
       <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
+        <Signup />
       </View>
     );
   }

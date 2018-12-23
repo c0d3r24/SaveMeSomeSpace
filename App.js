@@ -2,18 +2,18 @@ import React from 'react';
 import firebase from 'firebase';
 import { StyleSheet, Text, View } from 'react-native';
 import { config } from './src/util/constants'
+import Login from './src/components/Login';
 
- 
- class App extends React.Component {
-  ComponentWillMount(){
+export default class App extends React.Component {
+
+  componentWillMount(){
    // config will come from different file
     firebase.initializeApp(config);
   }
-
   render() {
     return (
       <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
+        <Login />
       </View>
     );
   }
@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+    backgroundColor: "#33FFCA"
   },
 });
 
-export default App;

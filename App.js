@@ -1,7 +1,7 @@
 import React from 'react';
 import firebase from 'firebase';
 import { StyleSheet, Text, View } from 'react-native';
-import { config } from './src/util/constants'
+import { config } from './src/util/firebaseConstants'
 import Login from './src/components/Login';
 
 export default class App extends React.Component {
@@ -25,7 +25,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: "#33FFCA"
+    backgroundColor: "#04523D"
   },
 });
 

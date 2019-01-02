@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Alert, Button, TextInput, View, StyleSheet,KeyboardAvoidingView } from 'react-native';
-
+import {colors} from './../util/colors';
 class Login extends React.Component{
   state = {
     username: '',
@@ -15,6 +15,7 @@ class Login extends React.Component{
           value={this.state.username}
           onChangeText={(username) => this.setState({ username })}
           placeholder={'Username'}
+          placeholderTextColor={colors.placeholderColor}
           style={styles.input}
         />
         <TextInput
@@ -23,10 +24,12 @@ class Login extends React.Component{
           placeholder={'Password'}
           secureTextEntry={true}
           style={styles.input}
+          placeholderTextColor={colors.placeholderColor}
         />
         <Button
           title={'Login'}
-          style={styles.input}
+          style={{color:'#ddd'}}
+          onPress= {() => console.log('on press')}
         />
       </View>
       </KeyboardAvoidingView>
@@ -46,8 +49,9 @@ const styles = {
     height: 44,
     padding: 10,
     borderWidth: 1,
-    borderColor: 'black',
+    borderColor: colors.inputBorderColor,
     marginBottom: 10,
+    color: colors.inputTextColor
   },
 };
 export default Login;

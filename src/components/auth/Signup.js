@@ -1,16 +1,24 @@
 import React, { Component } from 'react';
 import { Alert, Button, TextInput, View, StyleSheet,KeyboardAvoidingView } from 'react-native';
-import {colors} from './../util/colors';
-class Login extends React.Component{
+import {colors} from './../../util/colors';
+class Signup extends React.Component{
   state = {
     username: '',
     password: '',
+    name:''
   }
   
  render(){
      return (
       <KeyboardAvoidingView behavior="padding" style={styles.container}>
      <View style={styles.container}>
+        <TextInput
+          value={this.state.name}
+          onChangeText={(name) => this.setState({ name })}
+          placeholder={'Name'}
+          placeholderTextColor={colors.placeholderColor}
+          style={styles.input}
+        />
         <TextInput
           value={this.state.username}
           onChangeText={(username) => this.setState({ username })}
@@ -54,4 +62,4 @@ const styles = {
     color: colors.inputTextColor
   },
 };
-export default Login;
+export default Signup;

@@ -13,7 +13,6 @@ class Signup extends React.Component{
     name: '',
     password: '',
   }
-  
  render(){
      return (
      <LinearGradient

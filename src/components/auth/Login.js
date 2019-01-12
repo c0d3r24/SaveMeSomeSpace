@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { TouchableOpacity, Button, Text, TextInput, View, StyleSheet,KeyboardAvoidingView } from 'react-native';
 import { LinearGradient } from 'expo';
-import {Brand} from './../common';
+import {Brand, Input} from './../common';
 import {colors} from './../../util/colors';
 import { Actions } from 'react-native-router-flux';
 import Icon from "react-native-vector-icons/FontAwesome";
@@ -18,14 +18,14 @@ class Login extends React.Component{
           colors={[ '#2b4a42', '#1c312c']}
           style={styles.container}>
         <KeyboardAvoidingView behavior="padding" style={styles.container}>  
-        <TextInput
+        <Input
           value={this.state.username}
           onChangeText={(username) => this.setState({ username })}
           placeholder={'Username'}
           placeholderTextColor={colors.placeholderColor}
           style={styles.input}
         />
-        <TextInput
+        <Input
           value={this.state.password}
           onChangeText={(password) => this.setState({ password })}
           placeholder={'Password'}
@@ -50,7 +50,6 @@ class Login extends React.Component{
           onPress= {() => Actions.signup()}
           style= {[styles.buttonStyle]}
         >
-        
          <View style={{right:5,top: '50%', position: 'absolute'}}>
             <Icon  name="arrow-circle-right" size={20} color="#396358" /> 
         </View>
@@ -71,16 +70,6 @@ const styles = {
     alignItems: 'center',
     justifyContent: 'center',
     width: '100%'
-  },
-  input: {
-    width: "80%",
-    height: 44,
-    padding: 10,
-    borderBottomWidth: 1,
-    borderColor: colors.inputBorderColor,
-    marginBottom: 10,
-    color: colors.inputTextColor,
-    fontSize: 18,
   },
   buttonStyle : {
     width: "80%",

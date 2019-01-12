@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { TouchableOpacity, Button, Text, TextInput, View, StyleSheet,KeyboardAvoidingView } from 'react-native';
 import { LinearGradient } from 'expo';
-import {Brand} from './../common';
+import {Brand, Input} from './../common';
 import {colors} from './../../util/colors';
 import { Actions } from 'react-native-router-flux';
 
@@ -19,26 +19,23 @@ class Signup extends React.Component{
           colors={[ '#2b4a42', '#1c312c']}
           style={styles.container}>
         <KeyboardAvoidingView behavior="padding" style={styles.container}>  
-        <TextInput
+        <Input
           value={this.state.name}
           onChangeText={(name) => this.setState({ name })}
           placeholder={'Name'}
           placeholderTextColor={colors.placeholderColor}
-          style={styles.input}
         />
-        <TextInput
+        <Input
           value={this.state.username}
           onChangeText={(email) => this.setState({ email })}
           placeholder={'Email'}
           placeholderTextColor={colors.placeholderColor}
-          style={styles.input}
         />
-        <TextInput
+        <Input
           value={this.state.password}
           onChangeText={(password) => this.setState({ password })}
           placeholder={'Password'}
           secureTextEntry={true}
-          style={styles.input}
           placeholderTextColor={colors.placeholderColor}
         />
         <TouchableOpacity
@@ -79,16 +76,6 @@ const styles = {
     alignItems: 'center',
     justifyContent: 'center',
     width: '100%'
-  },
-  input: {
-    width: "80%",
-    height: 44,
-    padding: 10,
-    borderBottomWidth: 1,
-    borderColor: colors.inputBorderColor,
-    marginBottom: 10,
-    color: colors.inputTextColor,
-    fontSize: 18,
   },
   buttonStyle : {
     width: "80%",

@@ -5,7 +5,7 @@ Firebase project to save images on AWS S3
 ## Preview
 
 ![gif preview]()
-
+(https://github.com/c0d3r24/SaveMeSomeSpace/blob/master/initialUI.gif)
 ## Main technologies used
 
 - [React Native](https://github.com/facebook/react-native)

@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 import { TouchableOpacity, Button, Text, TextInput, View, StyleSheet,KeyboardAvoidingView } from 'react-native';
 import { LinearGradient } from 'expo';
+import {Brand} from './../common';
 import {colors} from './../../util/colors';
+import { Actions } from 'react-native-router-flux';
 import Icon from "react-native-vector-icons/FontAwesome";
+
 class Login extends React.Component{
   state = {
     username: '',
@@ -35,44 +38,29 @@ class Login extends React.Component{
           onPress= {() => console.log('on press')}
           style= {[styles.buttonStyle, ,{marginTop:30}]}
         >
+        <View style={{right:5,top: '50%', position: 'absolute'}}>
+            <Icon  name="unlock" size={20} color="#396358" /> 
+        </View>
           <Text  style={styles.textStyle}>
             Login
           </Text>
         </TouchableOpacity>
         <TouchableOpacity
           title={'Login'}
-          onPress= {() => console.log('on press')}
+          onPress= {() => Actions.signup()}
           style= {[styles.buttonStyle]}
         >
+        
+         <View style={{right:5,top: '50%', position: 'absolute'}}>
+            <Icon  name="arrow-circle-right" size={20} color="#396358" /> 
+        </View>
           <Text style={styles.textStyle}>
             Signup
           </Text>
         </TouchableOpacity>
         </KeyboardAvoidingView>
-
-        <View style={{bottom: "8%"}}>
-            
-            {/* <Icon name="blind" size={50} color={colors.inputBorderColor} /> */}
-            <Icon name="rocket" size={50} color={colors.inputBorderColor} />
-            <Text style={{fontSize: 24, color: colors.inputBorderColor}}>
-              SMSS
-            </Text>
-            <Text style={{fontSize: 11, color: colors.inputBorderColor}}>
-              Save Me
-            </Text>
-            {/* <Text style={{fontSize: 11, color: colors.inputBorderColor}}>
-              
-            </Text> */}
-            <Text style={{fontSize: 11, color: colors.inputBorderColor}}>
-              Some Space
-            </Text>
-            {/* <Text style={{fontSize: 11, color: colors.inputBorderColor}}>
-              
-            </Text> */}
-        </View>
-      </LinearGradient>
-      
-      
+        <Brand />
+      </LinearGradient> 
       );
  }
 }

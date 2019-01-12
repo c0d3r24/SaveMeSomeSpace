@@ -1,17 +1,25 @@
 import React, { Component } from 'react';
-import { Alert, Button, TextInput, View, StyleSheet,KeyboardAvoidingView } from 'react-native';
+import { TouchableOpacity, Button, Text, TextInput, View, StyleSheet,KeyboardAvoidingView } from 'react-native';
+import { LinearGradient } from 'expo';
+import {Brand} from './../common';
 import {colors} from './../../util/colors';
+import { Actions } from 'react-native-router-flux';
+
+import Icon from "react-native-vector-icons/FontAwesome";
+
 class Signup extends React.Component{
   state = {
-    username: '',
+    email: '',
+    name: '',
     password: '',
-    name:''
   }
   
  render(){
      return (
-      <KeyboardAvoidingView behavior="padding" style={styles.container}>
-     <View style={styles.container}>
+     <LinearGradient
+          colors={[ '#2b4a42', '#1c312c']}
+          style={styles.container}>
+        <KeyboardAvoidingView behavior="padding" style={styles.container}>  
         <TextInput
           value={this.state.name}
           onChangeText={(name) => this.setState({ name })}
@@ -21,8 +29,8 @@ class Signup extends React.Component{
         />
         <TextInput
           value={this.state.username}
-          onChangeText={(username) => this.setState({ username })}
-          placeholder={'Username'}
+          onChangeText={(email) => this.setState({ email })}
+          placeholder={'Email'}
           placeholderTextColor={colors.placeholderColor}
           style={styles.input}
         />
@@ -34,13 +42,34 @@ class Signup extends React.Component{
           style={styles.input}
           placeholderTextColor={colors.placeholderColor}
         />
-        <Button
+        <TouchableOpacity
           title={'Login'}
-          style={{color:'#ddd'}}
-          onPress= {() => console.log('on press')}
-        />
-      </View>
-      </KeyboardAvoidingView>
+          onPress= {() => console.log('Signup')}
+          style= {[styles.buttonStyle]}
+        >
+        <View style={{right:5,top: '50%', position: 'absolute'}}>
+            <Icon  name="sign-in" size={20} color="#396358" /> 
+        </View>
+          <Text style={styles.textStyle}>
+            Signup 
+          </Text>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          title={'Login'}
+          onPress= {() => Actions.pop()}
+          style= {[styles.buttonStyle, ,{marginTop:30}]}
+        >
+        <View style={{left:5,top: '50%', position: 'absolute'}}>
+            <Icon  name="arrow-circle-left" size={20} color="#396358" /> 
+        </View>
+          <Text  style={styles.textStyle}>
+          Login
+          </Text>
+        </TouchableOpacity>
+        </KeyboardAvoidingView>
+        <Brand />
+      </LinearGradient> 
       );
  }
 }
@@ -50,16 +79,34 @@ const styles = {
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    //backgroundColor: '#ecf0f1',
+    width: '100%'
   },
   input: {
-    width: 200,
+    width: "80%",
+    height: 44,
+    padding: 10,
+    borderBottomWidth: 1,
+    borderColor: colors.inputBorderColor,
+    marginBottom: 10,
+    color: colors.inputTextColor,
+    fontSize: 18,
+  },
+  buttonStyle : {
+    width: "80%",
     height: 44,
     padding: 10,
     borderWidth: 1,
+    borderRadius: 5,
     borderColor: colors.inputBorderColor,
-    marginBottom: 10,
-    color: colors.inputTextColor
-  },
+    marginTop: 20,
+    fontSize: 18,
+    backgroundColor: colors.inputTextColor
+},
+textStyle: {
+    alignSelf: 'center',
+    color: '#396358',
+    fontSize: 18,
+    fontWeight: '600',
+}
 };
 export default Signup;

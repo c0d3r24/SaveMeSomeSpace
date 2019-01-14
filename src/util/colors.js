@@ -3,5 +3,4 @@ export const colors = {
     inputTextColor: '#72E8C8',
     inputBorderColor: '#90F9DC',
     buttonTextColor: '#90F9DC'
-
 }

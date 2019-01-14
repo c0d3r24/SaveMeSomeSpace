@@ -35,7 +35,7 @@ class Login extends React.Component{
         />
         <TouchableOpacity
           title={'Login'}
-          onPress= {() => console.log('on press')}
+          onPress= {() => Actions.main()}
           style= {[styles.buttonStyle, ,{marginTop:30}]}
         >
         <View style={{right:5,top: '50%', position: 'absolute'}}>

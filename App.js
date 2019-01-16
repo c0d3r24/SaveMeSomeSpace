@@ -8,7 +8,7 @@ import {createStore, applyMiddleware} from 'redux';
 
 import ReduxThunk from 'redux-thunk';
 
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet } from 'react-native';
 
 import reducers from './src/reducers';
 

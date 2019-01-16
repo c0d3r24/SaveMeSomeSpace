@@ -1,26 +1,55 @@
 import React, { Component } from 'react';
-import { TouchableOpacity, Button, Text, TextInput, View, StyleSheet,KeyboardAvoidingView } from 'react-native';
+import {  View, FlatList, CameraRoll } from 'react-native';
 import { LinearGradient } from 'expo';
 import {Brand, Input} from '../common';
 import {colors} from '../../util/colors';
 import { Actions } from 'react-native-router-flux';
 import Icon from "react-native-vector-icons/FontAwesome";
+import PhotoItem from './PhotoItem';
 
 class Home extends React.Component{
   state = {
     username: '',
     password: '',
+    photos: []
   }
+  constructor(props){
+    super(props);
+    this._getPhotos = this._getPhotos.bind(this);
+    this._renderPhoto = this._renderPhoto.bind(this);
+  }
+  componentWillMount(){
+    this._getPhotos();
+  }
+  _getPhotos(){
+    CameraRoll.getPhotos({
+        first: 100,
+        assetType: 'Photos',
+    })
+        .then(r => {
+          console.log(r.edges);
+            this.setState({photos:[...r.edges]});
+        })
+        .catch((err) => {
+
+        });
+  }
+  _renderPhoto(photo){
+    return <PhotoItem photo={photo} />
+}
   
  render(){
      return (
      <LinearGradient
           colors={[ '#2b4a42', '#1c312c']}
           style={styles.container}>
-          <Text style={{color: colors.inputBorderColor, fontSize: 30}}>
-            HOME
-          </Text>
-        
+           <FlatList contentContainerStyle={styles.scrollContainer}
+                          data={this.state.photos}
+                          renderItem={this._renderPhoto}
+                          numColumns={4}
+                          keyExtractor={photo => photo.node.image.uri}
+                >
+          </FlatList>
       </LinearGradient> 
       );
  }

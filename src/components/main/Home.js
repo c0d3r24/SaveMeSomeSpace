@@ -13,35 +13,32 @@ class Home extends React.Component{
     password: '',
     photos: []
   }
-  constructor(props){
+  constructor(props) {
     super(props);
     this._getPhotos = this._getPhotos.bind(this);
     this._renderPhoto = this._renderPhoto.bind(this);
   }
-  componentWillMount(){
+
+  componentWillMount() {
     this._getPhotos();
   }
-  _getPhotos(){
+
+  _getPhotos() {
     CameraRoll.getPhotos({
         first: 100,
-        assetType: 'Photos',
-    })
-        .then(r => {
-          console.log(r.edges);
-            this.setState({photos:[...r.edges]});
-        })
-        .catch((err) => {
-
-        });
+        assetType: 'Photos'
+    }).then(r => {this.setState({photos:[...r.edges]});})
+      .catch((err) => {});
   }
-  _renderPhoto(photo){
+
+  _renderPhoto(photo) {
     return <PhotoItem photo={photo} />
-}
+  }
   
- render(){
+ render() {
      return (
      <LinearGradient
-          colors={[ '#2b4a42', '#1c312c']}
+          colors={colors.gradientColors}
           style={styles.container}>
            <FlatList contentContainerStyle={styles.scrollContainer}
                           data={this.state.photos}

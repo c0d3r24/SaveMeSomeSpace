@@ -15,7 +15,7 @@ class Stores extends React.Component{
  render(){
      return (
      <LinearGradient
-          colors={[ '#2b4a42', '#1c312c']}
+          colors={colors.gradientColors}
           style={styles.container}>
         <Text style={{color: colors.inputBorderColor, fontSize: 30}}>
             STORES

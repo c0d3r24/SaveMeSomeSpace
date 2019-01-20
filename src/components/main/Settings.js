@@ -14,13 +14,11 @@ class Settings extends React.Component{
   
  render(){
      return (
-     <LinearGradient
-          colors={[ '#2b4a42', '#1c312c']}
-          style={styles.container}>
-        <Text style={{color: colors.inputBorderColor, fontSize: 30}}>
-            SETTINGS
-          </Text>
-      </LinearGradient> 
+      <LinearGradient
+      colors={colors.gradientColors}
+      style={styles.container}>
+        <Text style={styles.textStyle}>Settings Goes here!</Text>
+    </LinearGradient> 
       );
  }
 }

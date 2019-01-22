@@ -15,7 +15,6 @@ import {
 
 import { validateEmail, validateRequiredField } from "../util/validation";
 
-
 export const userDetail = ({prop, value}) => {
     return {
         type: USER_UPDATE,

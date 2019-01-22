@@ -4,4 +4,5 @@ export const colors = {
     inputBorderColor: '#90F9DC',
     buttonTextColor: '#90F9DC',
     gradientColors: [ '#2b4a42', '#1c312c'],
+    iconColor: '#396358'
 }

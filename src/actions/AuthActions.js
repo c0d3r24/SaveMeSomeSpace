@@ -13,7 +13,7 @@ import {
     USER_UPDATE,
 } from "./types";
 
-import { validateEmail, validateRequiredField } from "../utils/validatation";
+import { validateEmail, validateRequiredField } from "../util/validation";
 
 
 export const userDetail = ({prop, value}) => {

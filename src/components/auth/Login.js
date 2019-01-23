@@ -6,18 +6,24 @@ import {Brand, Input} from './../common';
 import {colors} from './../../util/colors';
 import { Actions } from 'react-native-router-flux';
 import Icon from "react-native-vector-icons/FontAwesome";
-import {userDetail} from './../../actions';
+import {userDetail, loginUser} from './../../actions';
 
 class Login extends React.Component{
-  state = {
-    username: '',
-    password: '',
+  
+  constructor(props){
+    super(props);
+    this._onLoginButtonPress = this._onLoginButtonPress.bind(this);
+  }
+
+  _onLoginButtonPress(){
+    const {email, password} = this.props;
+    this.props.loginUser(email, password);
   }
   
- render(){
+  render(){
      return (
      <LinearGradient
-          colors={[ '#2b4a42', '#1c312c']}
+          colors={colors.gradientColors}
           style={styles.container}>
         <KeyboardAvoidingView behavior="padding" style={styles.container}>  
         <Input
@@ -98,4 +104,4 @@ const mapStateToProps = ({auth}) => {
     password: auth.password
   }
 }
-export default connect(mapStateToProps,{userDetail})(Login);
+export default connect(mapStateToProps,{userDetail, loginUser})(Login);

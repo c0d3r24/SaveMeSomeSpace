@@ -4,6 +4,7 @@ import { LinearGradient } from 'expo';
 import {Brand, Input} from './../common';
 import {colors} from './../../util/colors';
 import { Actions } from 'react-native-router-flux';
+import {userDetail, signupUser} from "./../actions";
 
 import Icon from "react-native-vector-icons/FontAwesome";
 
@@ -13,6 +14,10 @@ class Signup extends React.Component{
     name: '',
     password: '',
   }
+  _onButtonPress() {
+    const {email, password, firstName, lastName } = this.props;
+    this.props.signupUser(firstName, lastName, email, password);
+  }
  render(){
      return (
      <LinearGradient
@@ -20,27 +25,27 @@ class Signup extends React.Component{
           style={styles.container}>
         <KeyboardAvoidingView behavior="padding" style={styles.container}>  
         <Input
-          value={this.state.name}
-          onChangeText={(name) => this.setState({ name })}
+          onChangeText={value => this.props.userDetail({prop:'lastName', value})}
+          value={this.props.lastName}
           placeholder={'Name'}
           placeholderTextColor={colors.placeholderColor}
         />
         <Input
-          value={this.state.username}
-          onChangeText={(email) => this.setState({ email })}
+          onChangeText={value => this.props.userDetail({prop:'email', value})}
+          value={this.props.email}
           placeholder={'Email'}
           placeholderTextColor={colors.placeholderColor}
         />
         <Input
-          value={this.state.password}
-          onChangeText={(password) => this.setState({ password })}
+          onChangeText={value => this.props.userDetail({prop:'password', value})}
+          value={this.props.password}
           placeholder={'Password'}
           secureTextEntry={true}
           placeholderTextColor={colors.placeholderColor}
         />
         <TouchableOpacity
           title={'Login'}
-          onPress= {() => console.log('Signup')}
+          onPress= {this._onButtonPress}
           style= {[styles.buttonStyle]}
         >
         <View style={{right:5,top: '50%', position: 'absolute'}}>
@@ -95,4 +100,12 @@ textStyle: {
     fontWeight: '600',
 }
 };
-export default Signup;
+const mapStateToProps = ({auth}) => {
+  return {
+      email: auth.email,
+      password: auth.password,
+      firstName: auth.firstName,
+      lastName: auth.lastName
+  }
+};
+export default connect( mapStateToProps, {userDetail, signupUser} ) (Signup);

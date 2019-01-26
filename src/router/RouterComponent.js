@@ -6,7 +6,7 @@ import Icon from "react-native-vector-icons/FontAwesome";
 import {colors} from './../util/colors';
 import Login from './../components/auth/Login';
 import Signup from './../components/auth/Signup';
-import Home from '../components/main/Home';
+import Home from '../components/main/HomeScene/Home';
 import Settings from '../components/main/Settings';
 import Stores from '../components/main/Stores';
 

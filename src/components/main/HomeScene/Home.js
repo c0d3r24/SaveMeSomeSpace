@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import {  View, FlatList, CameraRoll } from 'react-native';
 import { LinearGradient } from 'expo';
-import {Brand, Input} from '../common';
-import {colors} from '../../util/colors';
+import {Brand, Input} from '../../common';
+import {colors} from '../../../util/colors';
 import { Actions } from 'react-native-router-flux';
 import Icon from "react-native-vector-icons/FontAwesome";
-import PhotoItem from './PhotoItem';
+import PhotoItem from '../PhotoItem';
 
 class Home extends React.Component{
   state = {
